@@ -16,6 +16,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { GaugeModule } from 'angular-gauge';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component';
+import { HttpheadersInterceptor } from './interceptors/http-headers.interceptors';
+import {  HttpErrorsInterceptor } from './interceptors/http-errors.interceptors';
+import { DetailsComponent } from './details/details.component';
 
 /////////////////////////////////////////////////////////////////////
 
@@ -23,7 +26,8 @@ import { HomeComponent } from './components/home/home.component';
   declarations: [
     AppComponent,
     SearchBarComponent,
-    HomeComponent
+    HomeComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,18 @@ import { HomeComponent } from './components/home/home.component';
     MatIconModule,
     //////////////////////////////////
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpheadersInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
