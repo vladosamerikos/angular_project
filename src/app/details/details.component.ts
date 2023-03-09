@@ -25,7 +25,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.routeSub = this.ActivateRoute.params.subscribe((params: Params) => {
       this.gameId = params['id'];
-      this.getGameDetails[this.gameId];
+      this.getGameDetails(this.gameId);
     })
   }
 
