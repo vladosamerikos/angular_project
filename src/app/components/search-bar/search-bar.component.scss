@@ -1,3 +1,4 @@
+
 .search {
     &-container{
         width: 100%;
@@ -50,11 +51,26 @@
 
 }
 
+svg {
+    width: 8rem;
+}
+  
+.path {
+    stroke: #000;
+    fill: transparent;
+    stroke-dasharray: 500;
+    stroke-dashoffset: -500;
+    animation: animate 5s forwards infinite;
+}
+
+@keyframes animate {
+    100% {
+        stroke-dashoffset: 500;
+    }
+}
+  
 
 .logo{
-    margin-left: 10px;
-    color: rgb(247, 10, 10);
-    font-weight: 700;
     cursor: pointer;
-    text-decoration: none;
+    margin-bottom: -13px;
 }

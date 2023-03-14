@@ -44,6 +44,7 @@ import { GameTabsComponent } from './game-tabs/game-tabs.component';
     MatSelectModule,
     MatTabsModule,
     MatIconModule,
+    
     //////////////////////////////////
   ],
   providers: [
